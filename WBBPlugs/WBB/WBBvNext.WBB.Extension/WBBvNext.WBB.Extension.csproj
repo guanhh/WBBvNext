@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="GeneratorFiles\Abstract\abstractcsproj.txt" />
+    <None Remove="GeneratorFiles\DataAccess\context.txt" />
+    <None Remove="GeneratorFiles\DataAccess\contextcsproj.txt" />
+    <None Remove="GeneratorFiles\Extension\extensioncsproj.txt" />
+    <None Remove="GeneratorFiles\Extension\module.txt" />
+    <None Remove="GeneratorFiles\Model\modelcsproj.txt" />
+    <None Remove="GeneratorFiles\Page\en.json" />
+    <None Remove="GeneratorFiles\Page\imports.txt" />
+    <None Remove="GeneratorFiles\Page\pagecsproj.txt" />
+    <None Remove="GeneratorFiles\Page\zh.json" />
+    <None Remove="GeneratorFiles\Test\testcsproj.txt" />
+    <None Remove="GeneratorFiles\ViewModel\vmcsproj.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="GeneratorFiles\Abstract\abstractcsproj.txt" />
+    <EmbeddedResource Include="GeneratorFiles\DataAccess\context.txt" />
+    <EmbeddedResource Include="GeneratorFiles\DataAccess\contextcsproj.txt" />
+    <EmbeddedResource Include="GeneratorFiles\Extension\module.txt" />
+    <EmbeddedResource Include="GeneratorFiles\Extension\extensioncsproj.txt" />
+    <EmbeddedResource Include="GeneratorFiles\Model\modelcsproj.txt" />
+    <EmbeddedResource Include="GeneratorFiles\Page\en.json" />
+    <EmbeddedResource Include="GeneratorFiles\Page\imports.txt" />
+    <EmbeddedResource Include="GeneratorFiles\Page\pagecsproj.txt" />
+    <EmbeddedResource Include="GeneratorFiles\Page\zh.json" />
+    <EmbeddedResource Include="GeneratorFiles\Test\testcsproj.txt" />
+    <EmbeddedResource Include="GeneratorFiles\ViewModel\vmcsproj.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WBBvNext.WBB.Abstract\WBBvNext.WBB.Abstract.csproj" />
+  </ItemGroup>
+
+</Project>

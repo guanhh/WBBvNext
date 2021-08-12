@@ -1,0 +1,13 @@
+﻿{
+  "WBBvNext.Shared.Program": {
+    "_Feedback": "Suggestion",
+    "MenuKey.Suggestion": "Suggestion Manager",
+    "Suggestion.Title": "Title",
+    "Suggestion.Detail": "Detail",
+    "Suggestion.QuestionType": "QuestionType",
+    "Suggestion.UserName": "UserName",
+    "Suggestion.Email": "Email",
+    "Suggestion.IsSolved": "IsSolved",
+    "Suggestion.Remark": "Remark"
+  }
+}

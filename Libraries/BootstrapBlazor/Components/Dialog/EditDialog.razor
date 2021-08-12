@@ -1,0 +1,32 @@
+﻿@namespace BootstrapBlazor.Components
+@typeparam TModel
+@inherits DialogBase<TModel>
+
+<ValidateForm Model="@Model" OnValidSubmit="@OnValidSubmitAsync">
+    @if (BodyTemplate != null)
+    {
+        @BodyTemplate?.Invoke(Model)
+        @RenderFooter
+    }
+    else
+    {
+        <CascadingValue Value="Items" IsFixed="true">
+            <EditorForm TModel="TModel">
+                <Buttons>
+                    @RenderFooter
+                </Buttons>
+            </EditorForm>
+        </CascadingValue>
+    }
+</ValidateForm>
+<div class="form-loader" @ref="SpinnerElement">
+    <Spinner Color="Color.Primary" />
+</div>
+
+@code {
+    RenderFragment RenderFooter =>
+    @<div class="modal-footer table-modal-footer">
+        <Button Color="Color.Secondary" Icon="fa fa-times" Text="@CloseButtonText" OnClickWithoutRender="@(new Func<Task>(OnClose))" />
+        <Button Color="Color.Primary" ButtonType="ButtonType.Submit" Icon="fa fa-save" Text="@SaveButtonText" />
+    </div>;
+}

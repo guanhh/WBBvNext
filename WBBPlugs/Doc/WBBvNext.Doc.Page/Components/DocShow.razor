@@ -1,0 +1,27 @@
+﻿@inherits BasePage
+@using WBBvNext.Base
+
+<div style="margin:10px">
+    <h3>@Title</h3>
+    <Markdown IsViewer="true" Value="@MarkdownString"></Markdown>
+</div>
+
+@code {
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string FileName { get; set; }
+
+    private string MarkdownString = "# Viewer Mode";
+
+    protected override void OnInitialized()
+    {
+        var docDir = $"{AppDomain.CurrentDomain.BaseDirectory}{WBBSetting.PLUG_DIR}/Doc";
+
+        var intro = $"{docDir}/Doc/{FileName}.md";
+
+        MarkdownString = System.IO.File.ReadAllText(intro);
+    }
+}

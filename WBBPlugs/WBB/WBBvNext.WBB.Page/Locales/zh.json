@@ -1,0 +1,10 @@
+﻿{
+  "WBBvNext.Shared.Program": {
+    "_WBB": "WBB",
+    "MenuKey.CodeGen": "插件代码生成",
+    "_WBB.PlugName": "插件名称",
+    "_WBB.IsExistDb": "包含数据库",
+    "_WBB.IsExistExtension": "包含扩展库",
+    "_WBB.ProjectDir": "项目路径"
+  }
+}

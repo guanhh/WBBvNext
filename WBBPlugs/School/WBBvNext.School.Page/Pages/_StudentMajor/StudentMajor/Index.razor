@@ -1,0 +1,156 @@
+﻿@page "/_School/StudentMajor"
+@using WBBvNext.ViewModel._StudentMajor.StudentMajorVMs;
+@inherits BasePage
+@attribute [ActionDescription("MenuKey.StudentMajor", "WBBvNext.School.Controllers,StudentMajor")]
+
+<WTSearchPanel OnSearch="@DoSearch">
+    <ValidateForm Model="@SearchModel">
+        <Row ItemsPerRow="ItemsPerRow.Three" RowType="RowType.Inline">
+
+            <Select @bind-Value="@SearchModel.MajorId" Items="@AllMajors" PlaceHolder="@WtmBlazor.Localizer["Sys.All"]"/>
+            <Select @bind-Value="@SearchModel.StudentId" Items="@AllStudents" PlaceHolder="@WtmBlazor.Localizer["Sys.All"]"/>
+        </Row>
+    </ValidateForm>
+</WTSearchPanel>
+
+
+
+<Table @ref="dataTable" TItem="StudentMajor_View" OnQueryAsync="OnSearch" IsPagination="true" IsStriped="true" IsBordered="true" ShowRefresh="false"
+       ShowToolbar="true" IsMultipleSelect="true" ShowExtendButtons="true" ShowDefaultButtons="false" style="margin-top:10px;">
+    <TableColumns>
+
+        <TableColumn @bind-Field="@context.MajorName_view"  />
+        <TableColumn @bind-Field="@context.LoginName_view"  />
+    </TableColumns>
+    <TableToolbarTemplate>
+        @if (IsAccessable("/api/StudentMajor/Add"))
+        {
+            <TableToolbarButton TItem="StudentMajor_View" Color="Color.Primary" Icon="fa fa-fw fa-plus" Text="@WtmBlazor.Localizer["Sys.Create"]" OnClickCallback="OnCreateClick" />
+        }
+        @if (IsAccessable("/api/StudentMajor/BatchDelete"))
+        {
+            <TableToolbarPopconfirmButton TItem="StudentMajor_View" Color="Color.Primary"
+                                          Icon="fa fa-fw fa-trash-o" Text="@WtmBlazor.Localizer["Sys.BatchDelete"]"
+                                          OnConfirm="@OnBatchDeleteClick" Content="@WtmBlazor.Localizer["Sys.BatchDeleteConfirm"]" CloseButtonText="@WtmBlazor.Localizer["Sys.Close"]"
+                                          ConfirmButtonText="@WtmBlazor.Localizer["Sys.BatchDelete"]" ConfirmButtonColor="Color.Danger" />
+        }
+        
+        @if (IsAccessable("/api/StudentMajor/Import"))
+        {
+            <TableToolbarButton TItem="StudentMajor_View" Color="Color.Primary" Icon="fa fa-fw fa-upload" Text="@WtmBlazor.Localizer["Sys.Import"]" OnClickCallback="@OnImportClick" />
+        }
+        @if (IsAccessable("/api/StudentMajor/ExportExcel"))
+        {
+            <TableToolbarButton TItem="StudentMajor_View" Color="Color.Primary" Icon="fa fa-fw fa-download" Text="@WtmBlazor.Localizer["Sys.Export"]" OnClickCallback="@OnExportClick" IsAsync="true" />
+        }
+    </TableToolbarTemplate>
+    <RowButtonTemplate>
+        <div style="padding-right:10px;">
+            @if (IsAccessable("/api/StudentMajor/Edit"))
+            {
+                <TableCellButton Size="Size.ExtraSmall" Color="Color.Success" Icon="fa fa-edit" Text="@WtmBlazor.Localizer["Sys.Edit"]" OnClickCallback="() => OnEditClick(context)" />
+            }
+            @if (IsAccessable("/api/StudentMajor/{id}"))
+            {
+                <TableCellButton Size="Size.ExtraSmall" Color="Color.Info" Icon="fa fa-info" Text="@WtmBlazor.Localizer["Sys.Details"]" OnClickCallback="()=>OnDetailsClick(context)" />
+            }
+            @if (IsAccessable("/api/StudentMajor/BatchDelete"))
+            {
+                <PopConfirmButton Icon="fa fa-trash-o" Text="@WtmBlazor.Localizer["Sys.Delete"]" OnConfirm="() => OnDeleteClick(context)" Color="Color.Danger" Size="Size.ExtraSmall"
+                                  Content="@WtmBlazor.Localizer["Sys.DeleteConfirm"]" CloseButtonText="@WtmBlazor.Localizer["Sys.Close"]" ConfirmButtonText="@WtmBlazor.Localizer["Sys.Delete"]" ConfirmButtonColor="Color.Danger" />
+            }
+        </div>
+    </RowButtonTemplate>
+</Table>
+
+@code{
+
+    private StudentMajorSearcher SearchModel = new StudentMajorSearcher();
+    private Table<StudentMajor_View> dataTable;
+
+    private List<SelectedItem> AllMajors = new List<SelectedItem>();
+
+    private List<SelectedItem> AllStudents = new List<SelectedItem>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        AllMajors = await WtmBlazor.Api.CallItemsApi("/api/StudentMajor/GetMajors", placeholder: WtmBlazor.Localizer["Sys.All"]);
+
+        AllStudents = await WtmBlazor.Api.CallItemsApi("/api/StudentMajor/GetStudents", placeholder: WtmBlazor.Localizer["Sys.All"]);
+
+        await base.OnInitializedAsync();
+    }
+
+    private async Task<QueryData<StudentMajor_View>> OnSearch(QueryPageOptions opts)
+    {
+        return await StartSearch<StudentMajor_View>("/api/StudentMajor/Search", SearchModel, opts);
+    }
+
+    private void DoSearch()
+    {
+        dataTable.QueryAsync();
+    }
+
+    private async Task OnCreateClick(IEnumerable<StudentMajor_View> items)
+    {
+        if (await OpenDialog<Create>(WtmBlazor.Localizer["Sys.Create"]) == DialogResult.Yes)
+        {
+            await dataTable.QueryAsync();
+        }
+    }
+
+    private async Task OnEditClick(StudentMajor_View item)
+    {
+        if (await OpenDialog<Edit>(WtmBlazor.Localizer["Sys.Edit"], x => x.id == item.ID.ToString()) == DialogResult.Yes)
+        {
+            await dataTable.QueryAsync();
+        }
+    }
+
+    private async Task OnDetailsClick(StudentMajor_View item)
+    {
+        await OpenDialog<Details>(WtmBlazor.Localizer["Sys.Details"], x => x.id == item.ID.ToString());
+    }
+
+    private async Task OnBatchDeleteClick()
+    {
+        if (dataTable.SelectedRows?.Any() == true)
+        {
+            await PostsData(dataTable.SelectedRows.Select(x => x.ID).ToList(), $"/api/StudentMajor/batchdelete", (s) => WtmBlazor.Localizer["Sys.BatchDeleteSuccess", s]);
+            await dataTable.QueryAsync();
+        }
+        else
+        {
+            await WtmBlazor.Toast.Information(WtmBlazor.Localizer["Sys.Info"], WtmBlazor.Localizer["Sys.SelectOneRowMin"]);
+        }
+    }
+
+    private async Task OnDeleteClick(StudentMajor_View item)
+    {
+        await PostsData(new List<string> { item.ID.ToString() }, $"/api/StudentMajor/batchdelete", (s) => "Sys.OprationSuccess");
+        await dataTable.QueryAsync();
+    }
+
+
+    private async Task OnExportClick(IEnumerable<StudentMajor_View> items)
+    {
+        if (dataTable.SelectedRows?.Any() == true)
+        {
+            await Download("/api/StudentMajor/ExportExcelByIds", dataTable.SelectedRows.Select(x => x.ID.ToString()).ToList());
+        }
+        else
+        {
+            await Download("/api/StudentMajor/ExportExcel", SearchModel);
+        }
+    }
+    private async Task OnImportClick(IEnumerable<StudentMajor_View> items)
+    {
+        if (await OpenDialog<Import>(WtmBlazor.Localizer["Sys.Import"]) == DialogResult.Yes)
+        {
+            await dataTable.QueryAsync();
+        }
+    }
+
+}

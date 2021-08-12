@@ -1,0 +1,46 @@
+﻿@page "/_WBB/CodeGen"
+@using WBBvNext.WBB.Abstract
+@inherits BasePage
+@attribute [ActionDescription("MenuKey.CodeGen")]
+
+<h3>WBBvNext插件模板创建</h3>
+
+<Divider />
+
+<GroupBox Title="WBBvNext平台插件模板生成" style="margin-top: 1.5rem;">
+	<ValidateForm Model="@Setting" OnValidSubmit="@Submit">
+		<Row ItemsPerRow="ItemsPerRow.One">
+			<BootstrapInput @bind-Value="@Setting.PlugName" />
+			<Checkbox @bind-Value="@Setting.IsExistDb" />
+			<br />
+			<Display @bind-Value="@Setting.ProjectDir" ShowLabel="true" />
+			<Button Icon="fa fa-save" Text="提交" ButtonType="ButtonType.Submit" IsDisabled="!isQuickDebug" />
+		</Row>
+	</ValidateForm>
+</GroupBox>
+
+@code {
+
+	protected CodeGenSetting Setting;
+	private bool isQuickDebug;
+
+	[Inject]
+	private ICodeGenService ProjectGenService { get; set; }
+
+	protected override void OnInitialized()
+	{
+		base.OnInitialized();
+
+		isQuickDebug = WtmBlazor.ConfigInfo.IsQuickDebug;
+		Setting = new CodeGenSetting(isQuickDebug);
+	}
+
+	private async Task Submit(EditContext context)
+	{
+		ProjectGenService.DoGen(Setting);
+
+		isQuickDebug = false;
+		await WtmBlazor.Toast.Success("WBBvNext插件模板创建", "生成成功");
+	}
+
+}

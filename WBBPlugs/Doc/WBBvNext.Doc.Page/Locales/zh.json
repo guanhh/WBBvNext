@@ -1,0 +1,17 @@
+﻿{
+  "WBBvNext.Shared.Program": {
+    "_Doc": "使用文档",
+    "MenuKey.Intro": "介绍",
+    "MenuKey.Question": "常见问题",
+    "MenuKey.Changelog": "更新日志",
+    "MenuKey.RunProject": "运行项目",
+    "MenuKey.CreateModule": "创建模块",
+    "MenuKey.EditModule": "编辑模块",
+    "MenuKey.RunModule": "运行模块",
+    "MenuKey.Localization": "本地化",
+    "MenuKey.Service": "服务",
+    "MenuKey.Setting": "配置",
+    "MenuKey.Module": "模块",
+    "MenuKey.StaticFile": "静态文件"
+  }
+}

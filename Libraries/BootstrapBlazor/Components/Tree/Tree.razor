@@ -1,0 +1,67 @@
+﻿@namespace BootstrapBlazor.Components
+@inherits BootstrapComponentBase
+
+@if (Items == null)
+{
+    if (ShowSkeleton)
+    {
+        <SkeletonTable></SkeletonTable>
+    }
+    else
+    {
+        <div class="table-loading">
+            <Spinner Color="Color.Primary" />
+        </div>
+    }
+}
+else
+{
+    <div @attributes="@AdditionalAttributes" tabindex="0" role="tree" class="@ClassString" @ref="@TreeElement">
+        <ul class="tree-root" role="tree">
+            @foreach (var item in Items)
+            {
+                @RenderTreeItem(item)
+            }
+        </ul>
+    </div>
+}
+
+@code {
+    private RenderFragment<TreeItem> RenderTreeNode => item =>
+    @<ul class="@GetTreeNodeClassString(item)" role="group">
+        @foreach (var node in item.Items)
+        {
+            @RenderTreeItem(node)
+        }
+    </ul>;
+
+private RenderFragment<TreeItem> RenderTreeItem => item =>
+@<li role="treeitem" class="@GetItemClassString(item)">
+    <div class="tree-content">
+        <i class="@GetCaretClassString(item)" @onclick="@(EventCallback.Factory.Create<MouseEventArgs>(this, () => OnExpandRowAsync(item)))"></i>
+        @if (ShowCheckbox)
+        {
+            <Checkbox @bind-Value="@item.Checked" IsDisabled="@item.Disabled" SkipValidate="true"
+                      ShowLabel="false" ShowAfterLabel="false"
+                      OnStateChanged="@(new Func<CheckboxState, bool, Task>((state, v) => OnStateChanged(state, item)))" />
+        }
+        <div class="tree-node" @onclick="@(EventCallback.Factory.Create<MouseEventArgs>(this, async () => await OnClick(item)))">
+            @if (ShowIcon)
+            {
+                <i class="@GetIconClassString(item)"></i>
+            }
+            <span>@item.Text</span>
+        </div>
+    </div>
+    @if (item.ShowLoading)
+    {
+        <ul class="tree-ul show">
+            <Spinner Size="Size.Small" Color="Color.Primary" />
+        </ul>
+    }
+    else if (item.Items.Any())
+    {
+        @RenderTreeNode(item)
+    }
+</li>;
+}

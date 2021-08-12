@@ -1,0 +1,59 @@
+﻿@namespace BootstrapBlazor.Components
+@typeparam TValue
+@inherits ButtonUploadBase<TValue>
+
+@if (IsShowLabel)
+{
+    <label class="control-label" required="@Required">@DisplayText</label>
+}
+<div @attributes="@AdditionalAttributes" class="@ClassString" @ref="UploaderElement">
+    <div class="upload-body is-card">
+        @foreach (var item in GetUploadFiles())
+        {
+            <div @key="@item" class="@GetItemClassString(item)">
+                <div class="upload-item-body">
+                    @if (IsImage(item))
+                    {
+                        <img src="@item.PrevUrl" />
+                    }
+                    else
+                    {
+                        <i class="@GetFileFormatClassString(item)"></i>
+                    }
+                </div>
+                <div class="upload-item-size"><span>@GetFileName(item)</span> (@item.Size.ToFileSizeString())</div>
+                <div class="upload-item-actions">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" disabled="@GetDiabledString(item)">
+                        <i class="fa fa-search-plus"></i>
+                    </button>
+                    <DynamicElement TagName="button" type="button" class="btn btn-sm btn-outline-danger" disabled="@GetDeleteButtonDiabledString(item)"
+                                    TriggerClick="@(!IsDisabled)" OnClick="@(() => OnCardFileDelete(item))">
+                        <i class="fa fa-trash-o"></i>
+                    </DynamicElement>
+                </div>
+                @if (GetShowProgress(item))
+                {
+                    <Progress Color="Color.Success" Height="4" Value="@item.ProgressPercent" />
+                }
+                <span class="upload-item-label">
+                    <i class="fa fa-check"></i>
+                    <i class="fa fa-times"></i>
+                </span>
+            </div>
+        }
+        @if (CanUpload)
+        {
+            <div class="@CardItemClass">
+                <div class="upload-item-actions btn-browser">
+                    @if (!IsDisabled)
+                    {
+                        <span class="upload-item-plus">
+                            <i class="fa fa-plus"></i>
+                        </span>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+    <InputFile AdditionalAttributes="@GetUploadAdditionalAttributes()" OnChange="OnFileChange" />
+</div>

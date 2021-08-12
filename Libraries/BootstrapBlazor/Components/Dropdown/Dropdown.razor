@@ -1,0 +1,17 @@
+﻿@namespace BootstrapBlazor.Components
+@typeparam TItem
+@inherits DropdownBase<TItem>
+
+<div @attributes="@AdditionalAttributes" id="@Id" class="@DirectionClassName">
+    <button type="button" class="@ButtonClassName" data-toggle="@DropdownToggle" aria-haspopup="true" aria-expanded="false">@SelectedItem?.Text</button>
+    @if (ShowSplit)
+    {
+        <button type="button" class="@ClassName" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+    }
+    <div class="@MenuAlignmentClass" aria-labelledby="dropdownMenuButton">
+        @foreach (var item in Items)
+        {
+            <div class="@ActiveItem(item)" @onclick="e => OnItemClick(item)">@item.Text</div>
+        }
+    </div>
+</div>

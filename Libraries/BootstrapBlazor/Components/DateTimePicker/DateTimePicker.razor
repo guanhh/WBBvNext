@@ -1,0 +1,21 @@
+﻿@namespace BootstrapBlazor.Components
+@typeparam TValue
+@inherits ValidateBase<TValue>
+
+@if (IsShowLabel)
+{
+    <label class="control-label" required="@Required">@DisplayText</label>
+}
+<div @attributes="@AdditionalAttributes" id="@Id" class="@ClassString" @ref="Picker" data-placement="@PlacementString">
+    <div class="datetime-picker-bar">
+        <input readonly="readonly" class="@InputClassName" @bind="@CurrentValueAsString" placeholder="@PlaceholderString" disabled="@DisabledString" />
+        <span class="@DateTimePickerIconClassString">
+            <i class="fa fa-calendar"></i>
+        </span>
+    </div>
+    <DatePickerBody @bind-Value="@ComponentValue" AllowNull="@AllowNull" ShowSidebar="@ShowSidebar"
+                    OnConfirm="@OnConfirm" OnClear="@OnClear" MinValue="@MinValue" MaxValue="@MaxValue"
+                    ViewModel="@ViewModel">
+    </DatePickerBody>
+</div>
+

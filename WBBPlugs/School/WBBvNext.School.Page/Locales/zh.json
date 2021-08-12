@@ -1,0 +1,21 @@
+﻿{
+  "WBBvNext.Shared.Program": {
+    "_School": "学校模块",
+    "MenuKey.Major": "专业管理",
+    "MenuKey.School": "学校管理",
+    "MenuKey.Student": "学生管理",
+    "MenuKey.StudentMajor": "学校专业",
+    "MenuKey.Test": "服务注入测试",
+    "MenuKey.Line": "折线",
+    "School.SchoolCode": "学校编码",
+    "School.SchoolName": "学校名称",
+    "School.SchoolType": "学校类型",
+    "School.Remark": "备注",
+    "School.PUB": "公立学校",
+    "School.PRI": "私立学校",
+    "School.PDFFile": "PDF文件",
+    "School.{0}required": "{0}是必填项",
+    "School.{0}3number": "{0}必须是3位数字",
+    "School.{0}stringmax{1}": "{0}最多输入{1}个字符"
+  }
+}

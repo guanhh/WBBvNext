@@ -1,0 +1,17 @@
+﻿{
+  "WBBvNext.Shared.Program": {
+    "_Doc": "Doc",
+    "MenuKey.Intro": "Intro",
+    "MenuKey.Question": "Question",
+    "MenuKey.Changelog": "Changelog",
+    "MenuKey.RunProject": "RunProject",
+    "MenuKey.CreateModule": "CreateModule",
+    "MenuKey.EditModule": "EditModule",
+    "MenuKey.RunModule": "RunModule",
+    "MenuKey.Localization": "Localzation",
+    "MenuKey.Service": "Service",
+    "MenuKey.Setting": "Setting",
+    "MenuKey.Module": "Module",
+    "MenuKey.StaticFile": "StaticFile"
+  }
+}

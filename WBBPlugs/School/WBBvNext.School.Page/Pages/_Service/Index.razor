@@ -1,0 +1,31 @@
+﻿@page "/_School/Test"
+@using WBBvNext.School.Abstract
+@inherits BasePage
+@attribute [ActionDescription("MenuKey.Test")]
+
+<h3>服务注入测试</h3>
+
+<Divider />
+
+<Row ItemsPerRow="ItemsPerRow.One">
+    <BootstrapInput @bind-Value="@ChineseStr" DisplayText="汉字转拼音测试" ShowLabel="true" />
+    <BootstrapInput @bind-Value="@PinyinStr" DisplayText="转换后" ShowLabel="true" IsDisabled="true" />
+    <Button Color="Color.Primary" @onclick="Convert">转换</Button>
+</Row>
+
+
+@code {
+
+    [Inject]
+    private IPinyinService pinYinService { get; set; }
+
+    private string ChineseStr = "你好杭州";
+
+    private string PinyinStr;
+
+    public void Convert()
+    {
+        PinyinStr = pinYinService.ConvertToAllSpell(ChineseStr);
+    }
+
+}

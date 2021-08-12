@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <PreserveCompilationReferences>true</PreserveCompilationReferences>
+ </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\WBBvNext.Model\WBBvNext.Model.csproj" />
+  </ItemGroup >
+</Project>
+

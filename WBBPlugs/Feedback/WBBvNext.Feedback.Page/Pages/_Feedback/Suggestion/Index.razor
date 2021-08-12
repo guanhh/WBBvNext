@@ -1,0 +1,153 @@
+﻿@page "/_Feedback/Suggestion"
+@using WBBvNext.ViewModel._Feedback.SuggestionVMs;
+@inherits BasePage
+@attribute [ActionDescription("MenuKey.Suggestion", "WBBvNext.Feedback.Controllers,Suggestion")]
+
+<WTSearchPanel OnSearch="@DoSearch">
+    <ValidateForm Model="@SearchModel">
+        <Row ItemsPerRow="ItemsPerRow.Three" RowType="RowType.Inline">
+
+            <Select @bind-Value="@SearchModel.QuestionType"  PlaceHolder="@WtmBlazor.Localizer["Sys.All"]"/>
+            <Select @bind-Value="@SearchModel.IsSolved" Items="@WtmBlazor.GlobalSelectItems.SearcherBoolItems" PlaceHolder="@WtmBlazor.Localizer["Sys.All"]"/>
+        </Row>
+    </ValidateForm>
+</WTSearchPanel>
+
+
+
+<Table @ref="dataTable" TItem="Suggestion_View" OnQueryAsync="OnSearch" IsPagination="true" IsStriped="true" IsBordered="true" ShowRefresh="false"
+       ShowToolbar="true" IsMultipleSelect="true" ShowExtendButtons="true" ShowDefaultButtons="false" style="margin-top:10px;">
+    <TableColumns>
+
+        <TableColumn @bind-Field="@context.Title"  />
+        <TableColumn @bind-Field="@context.Detail"  />
+        <TableColumn @bind-Field="@context.QuestionType"  />
+        <TableColumn @bind-Field="@context.UserName"  />
+        <TableColumn @bind-Field="@context.Email"  />
+        <TableColumn @bind-Field="@context.IsSolved" ComponentType="@typeof(Switch)" />
+        <TableColumn @bind-Field="@context.Remark"  />
+    </TableColumns>
+    <TableToolbarTemplate>
+        @if (IsAccessable("/api/Suggestion/Add"))
+        {
+            <TableToolbarButton TItem="Suggestion_View" Color="Color.Primary" Icon="fa fa-fw fa-plus" Text="@WtmBlazor.Localizer["Sys.Create"]" OnClickCallback="OnCreateClick" />
+        }
+        @if (IsAccessable("/api/Suggestion/BatchDelete"))
+        {
+            <TableToolbarPopconfirmButton TItem="Suggestion_View" Color="Color.Primary"
+                                          Icon="fa fa-fw fa-trash-o" Text="@WtmBlazor.Localizer["Sys.BatchDelete"]"
+                                          OnConfirm="@OnBatchDeleteClick" Content="@WtmBlazor.Localizer["Sys.BatchDeleteConfirm"]" CloseButtonText="@WtmBlazor.Localizer["Sys.Close"]"
+                                          ConfirmButtonText="@WtmBlazor.Localizer["Sys.BatchDelete"]" ConfirmButtonColor="Color.Danger" />
+        }
+        
+        @if (IsAccessable("/api/Suggestion/Import"))
+        {
+            <TableToolbarButton TItem="Suggestion_View" Color="Color.Primary" Icon="fa fa-fw fa-upload" Text="@WtmBlazor.Localizer["Sys.Import"]" OnClickCallback="@OnImportClick" />
+        }
+        @if (IsAccessable("/api/Suggestion/ExportExcel"))
+        {
+            <TableToolbarButton TItem="Suggestion_View" Color="Color.Primary" Icon="fa fa-fw fa-download" Text="@WtmBlazor.Localizer["Sys.Export"]" OnClickCallback="@OnExportClick" IsAsync="true" />
+        }
+    </TableToolbarTemplate>
+    <RowButtonTemplate>
+        <div style="padding-right:10px;">
+            @if (IsAccessable("/api/Suggestion/Edit"))
+            {
+                <TableCellButton Size="Size.ExtraSmall" Color="Color.Success" Icon="fa fa-edit" Text="@WtmBlazor.Localizer["Sys.Edit"]" OnClickCallback="() => OnEditClick(context)" />
+            }
+            @if (IsAccessable("/api/Suggestion/{id}"))
+            {
+                <TableCellButton Size="Size.ExtraSmall" Color="Color.Info" Icon="fa fa-info" Text="@WtmBlazor.Localizer["Sys.Details"]" OnClickCallback="()=>OnDetailsClick(context)" />
+            }
+            @if (IsAccessable("/api/Suggestion/BatchDelete"))
+            {
+                <PopConfirmButton Icon="fa fa-trash-o" Text="@WtmBlazor.Localizer["Sys.Delete"]" OnConfirm="() => OnDeleteClick(context)" Color="Color.Danger" Size="Size.ExtraSmall"
+                                  Content="@WtmBlazor.Localizer["Sys.DeleteConfirm"]" CloseButtonText="@WtmBlazor.Localizer["Sys.Close"]" ConfirmButtonText="@WtmBlazor.Localizer["Sys.Delete"]" ConfirmButtonColor="Color.Danger" />
+            }
+        </div>
+    </RowButtonTemplate>
+</Table>
+
+@code{
+
+    private SuggestionSearcher SearchModel = new SuggestionSearcher();
+    private Table<Suggestion_View> dataTable;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+
+        await base.OnInitializedAsync();
+    }
+
+    private async Task<QueryData<Suggestion_View>> OnSearch(QueryPageOptions opts)
+    {
+        return await StartSearch<Suggestion_View>("/api/Suggestion/Search", SearchModel, opts);
+    }
+
+    private async Task DoSearch()
+    {
+        await dataTable.QueryAsync();
+    }
+
+    private async Task OnCreateClick(IEnumerable<Suggestion_View> items)
+    {
+        if (await OpenDialog<Create>(WtmBlazor.Localizer["Sys.Create"]) == DialogResult.Yes)
+        {
+            await dataTable.QueryAsync();
+        }
+    }
+
+    private async Task OnEditClick(Suggestion_View item)
+    {
+        if (await OpenDialog<Edit>(WtmBlazor.Localizer["Sys.Edit"], x => x.id == item.ID.ToString()) == DialogResult.Yes)
+        {
+            await dataTable.QueryAsync();
+        }
+    }
+
+    private async Task OnDetailsClick(Suggestion_View item)
+    {
+        await OpenDialog<Details>(WtmBlazor.Localizer["Sys.Details"], x => x.id == item.ID.ToString());
+    }
+
+    private async Task OnBatchDeleteClick()
+    {
+        if (dataTable.SelectedRows?.Any() == true)
+        {
+            await PostsData(dataTable.SelectedRows.Select(x => x.ID).ToList(), $"/api/Suggestion/batchdelete", (s) => WtmBlazor.Localizer["Sys.BatchDeleteSuccess", s]);
+            await dataTable.QueryAsync();
+        }
+        else
+        {
+            await WtmBlazor.Toast.Information(WtmBlazor.Localizer["Sys.Info"], WtmBlazor.Localizer["Sys.SelectOneRowMin"]);
+        }
+    }
+
+    private async Task OnDeleteClick(Suggestion_View item)
+    {
+        await PostsData(new List<string> { item.ID.ToString() }, $"/api/Suggestion/batchdelete", (s) => "Sys.OprationSuccess");
+        await dataTable.QueryAsync();
+    }
+
+
+    private async Task OnExportClick(IEnumerable<Suggestion_View> items)
+    {
+        if (dataTable.SelectedRows?.Any() == true)
+        {
+            await Download("/api/Suggestion/ExportExcelByIds", dataTable.SelectedRows.Select(x => x.ID.ToString()).ToList());
+        }
+        else
+        {
+            await Download("/api/Suggestion/ExportExcel", SearchModel);
+        }
+    }
+    private async Task OnImportClick(IEnumerable<Suggestion_View> items)
+    {
+        if (await OpenDialog<Import>(WtmBlazor.Localizer["Sys.Import"]) == DialogResult.Yes)
+        {
+            await dataTable.QueryAsync();
+        }
+    }
+
+}

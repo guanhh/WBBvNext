@@ -1,0 +1,10 @@
+﻿{
+  "WBBvNext.Shared.Program": {
+    "_WBB": "WBB",
+    "MenuKey.CodeGen": "CodeGen",
+    "_WBB.PlugName": "PlugName",
+    "_WBB.IsExistDb": "IsExistDb",
+    "_WBB.IsExistExtension": "IsExistExtension",
+    "_WBB.ProjectDir": "ProjectDir"
+  }
+}

@@ -1,0 +1,30 @@
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using WalkingTec.Mvvm.Core;
+using WBBvNext.$PlugName$.Model;
+
+namespace WBBvNext.$PlugName$.DataAccess
+{
+    public class $PlugName$DBContext : FrameworkContext
+    {
+        //此处定义你的DbSet
+
+        public $PlugName$DBContext(CS cs)
+           : base(cs)
+        {
+        }
+
+        public $PlugName$DBContext(string cs, DBTypeEnum dbtype)
+            : base(cs, dbtype)
+        {
+        }
+
+        public $PlugName$DBContext(string cs, DBTypeEnum dbtype, string version = null)
+            : base(cs, dbtype, version)
+        {
+        }
+
+
+        public $PlugName$DBContext(DbContextOptions<$PlugName$DBContext> options) : base(options) { }
+    }
+}

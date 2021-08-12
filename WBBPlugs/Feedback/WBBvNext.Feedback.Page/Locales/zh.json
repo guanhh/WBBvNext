@@ -1,0 +1,13 @@
+﻿{
+  "WBBvNext.Shared.Program": {
+    "_Feedback": "反馈",
+    "MenuKey.Suggestion": "反馈中心",
+    "Suggestion.Title": "标题",
+    "Suggestion.Detail": "详情",
+    "Suggestion.QuestionType": "问题类型",
+    "Suggestion.UserName": "用户名",
+    "Suggestion.Email": "邮箱",
+    "Suggestion.IsSolved": "解决",
+    "Suggestion.Remark": "备注"
+  }
+}

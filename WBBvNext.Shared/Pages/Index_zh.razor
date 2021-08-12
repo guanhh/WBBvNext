@@ -1,0 +1,36 @@
+<h3>WBBvNext Modules</h3>
+
+<section>
+    <div class="row g-3">
+        @foreach (var item in WBBModules)
+        {
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-2" style="margin-top:20px">
+                <Card Color="Color.None" IsCenter="true">
+                    <CardHeader>
+                        @item.Name
+                    </CardHeader>
+                    <CardBody>
+                        <h6 class="card-title">@item.DisplayName</h6>
+                        <Divider />
+                        <p class="card-text">@item.Desc</p>
+                        <Badge Color="Color.Success">@item.ModuleType</Badge>
+                        <Badge Color="Color.Secondary">@item.Version</Badge>
+                        <Badge Color="Color.Primary">@item.Author</Badge>
+                    </CardBody>
+                </Card>
+            </div>
+        }
+    </div>
+</section>
+
+@code {
+
+    private List<IWBBModule> WBBModules;
+
+    protected override Task OnInitializedAsync()
+    {
+        WBBModules = ModuleHelper.GetWBBModules();
+
+        return base.OnInitializedAsync();
+    }
+}

@@ -1,0 +1,45 @@
+﻿@page "/_Feedback/Suggestion/Details/{id}"
+@using WBBvNext.ViewModel._Feedback.SuggestionVMs;
+@inherits BasePage
+
+<ValidateForm @ref="vform" Model="@Model">
+	<Row ItemsPerRow="ItemsPerRow.Two" RowType="RowType.FormRow">
+
+		<Display @bind-Value="@Model.Entity.Title" ShowLabel="true" />
+		<Row ColSpan="2">
+			<Textarea @bind-Value="@Model.Entity.Detail" rows="4" ShowLabel="true" readonly />
+		</Row>
+		<Display @bind-Value="@Model.Entity.QuestionType" ShowLabel="true" />
+		<Display @bind-Value="@Model.Entity.UserName" ShowLabel="true" />
+		<Display @bind-Value="@Model.Entity.Email" ShowLabel="true" />
+		<Switch @bind-Value="@Model.Entity.IsSolved" IsDisabled="true" ShowLabel="true" />
+		<Row ColSpan="2">
+			<Textarea @bind-Value="@Model.Entity.Remark" rows="4" ShowLabel="true" readonly />
+		</Row>
+	</Row>
+	<div class="modal-footer table-modal-footer">
+		<Button Color="Color.Primary" Icon="fa fa-save" Text="@WtmBlazor.Localizer["Sys.Close"]" OnClick="OnClose" />
+	</div>
+</ValidateForm>
+
+@code {
+
+	private SuggestionVM Model = null;
+	private ValidateForm vform { get; set; }
+	[Parameter]
+	public string id { get; set; }
+
+
+	protected override async Task OnInitializedAsync()
+	{
+
+		var rv = await WtmBlazor.Api.CallAPI<SuggestionVM>($"/api/Suggestion/{id}");
+		Model = rv.Data;
+	}
+
+	public void OnClose()
+	{
+		CloseDialog();
+	}
+
+}

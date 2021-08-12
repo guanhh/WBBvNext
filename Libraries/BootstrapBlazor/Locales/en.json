@@ -1,0 +1,277 @@
+﻿{
+  "BootstrapBlazor.Components.AutoComplete": {
+    "NoDataTip": "No Data",
+    "PlaceHolder": "Please Input"
+  },
+  "BootstrapBlazor.Components.BarcodeReader": {
+    "ButtonScanText": "Scan",
+    "ButtonStopText": "Close",
+    "AutoStopText": "AutoClose",
+    "DeviceLabel": "Camera",
+    "InitDevicesString": "Initialzie ...",
+    "NotFoundDevicesString": "Not found video device"
+  },
+  "BootstrapBlazor.Components.Captcha": {
+    "HeaderText": "Captcha",
+    "BarText": "Slide right to fill puzzle",
+    "FailedText": "Load failed",
+    "LoadText": "Loading ...",
+    "TryText": "Try again"
+  },
+  "BootstrapBlazor.Components.Camera": {
+    "DeviceLabel": "Camera",
+    "InitDevicesString": "Initialzie ...",
+    "PlayText": "Open",
+    "StopText": "Close",
+    "PhotoText": "Photo",
+    "FrontText": "Front",
+    "BackText": "Back",
+    "NotFoundDevicesString": "Not found video device"
+  },
+  "BootstrapBlazor.Components.Calendar": {
+    "PreviousYear": "Previous Year",
+    "PreviousMonth": "Previous Month",
+    "Today": "Today",
+    "NextMonth": "Next Month",
+    "NextYear": "Next Year",
+    "PreviousWeek": "Previous Week",
+    "WeekText": "Week",
+    "NextWeek": "Next Week",
+    "WeekHeaderText": "",
+    "WeekLists": "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+    "WeekNumberText": "{0} Weeks",
+    "Months": "January,February,March,April,May,June,July,August,September,October,November,December",
+    "Title": "{0} {1}"
+  },
+  "BootstrapBlazor.Components.Cascader": {
+    "PlaceHolder": "Please select ..."
+  },
+  "BootstrapBlazor.Components.Console": {
+    "HeaderText": "Monitor",
+    "LightTitle": "Light",
+    "ClearButtonText": "Clear",
+    "AutoScrollText": "AutoScroll"
+  },
+  "BootstrapBlazor.Components.DateTimePicker": {
+    "DatePlaceHolder": "Select date",
+    "TimePlaceHolder": "Select time",
+    "DateTimePlaceHolderText": "Please select ...",
+    "DatePlaceHolderText": "Please select ...",
+    "TimeFormat": "hh\\:mm\\:ss",
+    "DateFormat": "M/d/yyyy",
+    "DateTimeFormat": "M/d/yyyy HH\\:mm\\:ss",
+    "AiraPrevYearLabel": "Prev Year",
+    "AiraNextYearLabel": "Next Year",
+    "AiraPrevMonthLabel": "Prev Month",
+    "AiraNextMonthLabel": "Next Month",
+    "ClearButtonText": "Clear",
+    "NowButtonText": "Now",
+    "ConfirmButtonText": "Ok",
+    "CancelButtonText": "Cancel",
+    "YearText": "{0}",
+    "MonthText": "{0}",
+    "YearPeriodText": "{0} - {1}",
+    "Months": "January,February,March,April,May,June,July,August,September,October,November,December",
+    "MonthLists": "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec",
+    "WeekLists": "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+    "GenericTypeErroMessage": "DateTimePicker only support DateTime or Nullable<DateTime>",
+    "Today": "Today",
+    "Yesterday": "Yesterday",
+    "Weekago": "A week ago"
+  },
+  "BootstrapBlazor.Components.DateTimeRange": {
+    "SeparateText": "To",
+    "StartPlaceHolderText": "Start date",
+    "EndPlaceHolderText": "End date",
+    "ClearButtonText": "Clear",
+    "TodayButtonText": "Today",
+    "ConfirmButtonText": "Ok",
+    "DateFormat": "M/d/yyyy",
+    "Last7Days": "Last 7 Days",
+    "Last30Days": "Last 30 Days",
+    "ThisMonth": "This Month",
+    "LastMonth": "Last Month"
+  },
+  "BootstrapBlazor.Components.BootstrapInputNumber": {
+    "ParsingErrorMessage": "The {0} field must be a number."
+  },
+  "BootstrapBlazor.Components.ResultDialogOption": {
+    "ButtonYesText": "Yes",
+    "ButtonNoText": "No",
+    "ButtonCloseText": "Close"
+  },
+  "BootstrapBlazor.Components.DropdownList": {
+    "PlaceHolder": "Please select ..."
+  },
+  "BootstrapBlazor.Components.Editor": {
+    "PlaceHolder": "Click to edit"
+  },
+  "BootstrapBlazor.Components.EditorForm": {
+    "ModelInvalidOperationExceptionMessage": "ValidateForm MODEL not match {0} MODEL",
+    "PlaceHolderText": "Please input ..."
+  },
+  "BootstrapBlazor.Components.Empty": {
+    "Description": "No Data"
+  },
+  "BootstrapBlazor.Components.EqualToValidator": {
+    "ErrorMessage": "Please enter the same value again"
+  },
+  "BootstrapBlazor.Components.GoTop": {
+    "TooltipText": "Go top"
+  },
+  "BootstrapBlazor.Components.Layout": {
+    "TooltipText": "Click to Expand/Collapse sidebar"
+  },
+  "BootstrapBlazor.Components.Menu": {
+    "InvalidOperationExceptionMessage": "Sidemenu component cannot be used independently. Please use Menu component to set IsVertical = true"
+  },
+  "BootstrapBlazor.Components.ModalDialog": {
+    "CloseButtonText": "Close"
+  },
+  "BootstrapBlazor.Components.MultiSelect": {
+    "PlaceHolder": "Click for select ...",
+    "SelectAllText": "All",
+    "ReverseSelectText": "Reverse",
+    "ClearText": "Clear",
+    "MinErrorMessage": "Select at least {0} items",
+    "MaxErrorMessage": "At most {0} items can be selected"
+  },
+  "BootstrapBlazor.Components.Pagination": {
+    "AiraPageLabel": "Pagination",
+    "AiraPrevPageText": "Prev",
+    "AiraFirstPageText": "First",
+    "AiraNextPageText": "Next",
+    "PageInfoText": "{0}-{1}",
+    "TotalInfoText": ", Total {0}",
+    "PrePageInfoText": "",
+    "RowInfoText": "",
+    "LabelString": "page {0}",
+    "SelectItemsText": "{0} /page"
+  },
+  "BootstrapBlazor.Components.PopConfirmButton": {
+    "CloseButtonText": "Cancel",
+    "ConfirmButtonText": "Ok",
+    "Content": "Are you sure you want to perform this operation?"
+  },
+  "BootstrapBlazor.Components.QRCode": {
+    "PlaceHolder": "Please input ...",
+    "ClearButtonText": "Clear",
+    "GenerateButtonText": "Generate"
+  },
+  "BootstrapBlazor.Components.Search": {
+    "SearchButtonText": "Search"
+  },
+  "BootstrapBlazor.Components.Select": {
+    "PlaceHolder": "Click for select ..."
+  },
+  "BootstrapBlazor.Components.StringLengthValidator": {
+    "ErrorMessage": "Please enter a value less than or equal to {{0}}"
+  },
+  "BootstrapBlazor.Components.SweetAlert": {
+    "CloseButtonText": "Close",
+    "CancelButtonText": "Cancel",
+    "ConfirmButtonText": "Confirm"
+  },
+  "BootstrapBlazor.Components.Switch": {
+    "OnInnerText": "On",
+    "OffInnerText": "Off"
+  },
+  "BootstrapBlazor.Components.Tab": {
+    "CloseCurrentTabText": "Close",
+    "CloseOtherTabsText": "Close Other",
+    "CloseAllTabsText": "Close All"
+  },
+  "BootstrapBlazor.Components.Table": {
+    "AddButtonText": "Add",
+    "EditButtonText": "Edit",
+    "UpdateButtonText": "Update",
+    "DeleteButtonText": "Delete",
+    "CancelButtonText": "Cancel",
+    "SaveButtonText": "Save",
+    "CancelDeleteButtonText": "Cancel",
+    "ConfirmDeleteButtonText": "Delete",
+    "ConfirmDeleteContentText": "Are you sure to DELETE all selected rows?",
+    "RefreshButtonText": "Refresh",
+    "ColumnButtonTitleText": "Show/Hide Columns",
+    "ColumnButtonText": "Columns",
+    "ExportButtonText": "Export",
+    "SearchPlaceholderText": "Search",
+    "SearchButtonText": "Search",
+    "ResetSearchButtonText": "Reset",
+    "AdvanceButtonText": "Advance Search",
+    "CheckboxDisplayText": "All",
+    "EditModalTitle": "Edit Data",
+    "AddModalTitle": "New Data",
+    "ColumnButtonTemplateHeaderText": "",
+    "SearchTooltip": "<div class='search-input-tooltip'>Please input ...</br><kbd>Enter</kbd> Search <kbd>ESC</kbd> Clear</div>",
+    "SearchModalTitle": "Searching",
+    "AddButtonToastTitle": "Add Data",
+    "AddButtonToastContent": "Save data failed. Please provider SAVE method",
+    "EditButtonToastTitle": "Add Data",
+    "EditButtonToastNotSelectContent": "Save data failed. Please provider SAVE method",
+    "EditButtonToastMoreSelectContent": "Only one row can be EDIT",
+    "EditButtonToastNoSaveMethodContent": "Can not EDIT data. Please provider SAVE method",
+    "SaveButtonToastTitle": "Save Data",
+    "SaveButtonToastContent": "Save data failed. Please provider SAVE method",
+    "SaveButtonToastResultContent": "Save data {0}, auto close after {1}s",
+    "SuccessText": "Successful",
+    "FailText": "Failed",
+    "DeleteButtonToastTitle": "Delete Data",
+    "DeleteButtonToastContent": "Please select DELETE rows, auto close after {0}s",
+    "DeleteButtonToastResultContent": "Delete data {0}, auto close after {1}s",
+    "DataServiceInvalidOperationText": "Cannot provide a value for property 'DataService' on type 'BootstrapBlazor.Components.Table`1[[{0}]]'. There is no registered service of type 'BootstrapBlazor.Components.IDataService`1[{0}]'.",
+    "NotSetOnTreeExpandErrorMessage": "not set OnTreeExpand parameter",
+    "UnsetText": "Asc",
+    "SortAscText": "Desc",
+    "SortDescText": "None"
+  },
+  "BootstrapBlazor.Components.EditDialog": {
+    "CloseButtonText": "Close",
+    "SaveButtonText": "Save"
+  },
+  "BootstrapBlazor.Components.TableFilter": {
+    "Title": "Filter",
+    "ClearButtonText": "Clear",
+    "FilterButtonText": "Filter",
+    "BoolFilter.AllText": "All",
+    "BoolFilter.TrueText": "True",
+    "BoolFilter.FalseText": "False",
+    "GreaterThanOrEqual": "GreaterThanOrEqual",
+    "LessThanOrEqual": "LessThanOrEqual",
+    "GreaterThan": "GreaterThan",
+    "LessThan": "LessThan",
+    "Equal": "Equal",
+    "NotEqual": "NotEqual",
+    "Contains": "Contains",
+    "NotContains": "NotContains",
+    "EnumFilter.AllText": "All"
+  },
+  "BootstrapBlazor.Components.SearchDialog": {
+    "ResetButtonText": "Reset",
+    "QueryButtonText": "Query"
+  },
+  "BootstrapBlazor.Components.Timer": {
+    "PauseText": "Pause",
+    "ResumeText": "Resume",
+    "CancelText": "Cancel",
+    "StarText": "Star"
+  },
+  "BootstrapBlazor.Components.Toggle": {
+    "OnText": "Expand",
+    "OffText": "Collapse"
+  },
+  "BootstrapBlazor.Components.Transfer": {
+    "LeftPanelText": "All",
+    "RightPanelText": "Selected"
+  },
+  "BootstrapBlazor.Components.TransferPanel": {
+    "SearchPlaceHolderString": "Please input ...",
+    "Text": "List"
+  },
+  "BootstrapBlazor.Components.Upload": {
+    "DeleteButtonText": "Delete",
+    "BrowserButtonText": "Browser",
+    "FileExtensions": "File must have one of the following extensions: {0}",
+    "FileSizeValidation": "File size must less {0}"
+  }
+}

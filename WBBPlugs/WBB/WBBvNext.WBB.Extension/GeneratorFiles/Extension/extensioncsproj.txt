@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\WBBvNext.Base\WBBvNext.Base.csproj" />
+    <ProjectReference Include="..\WBBvNext.$PlugName$.Abstract\WBBvNext.$PlugName$.Abstract.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,28 @@
+﻿@namespace BootstrapBlazor.Components
+@typeparam TValue
+@inherits ValidateBase<TValue>
+
+@if (IsShowLabel)
+{
+    <label class="control-label" required="@Required">@DisplayText</label>
+}
+<div @attributes="@AdditionalAttributes" class="transfer">
+    <TransferPanel Items="@LeftItems" Text="@LeftPanelText" IsDisabled="@IsDisabled"
+                   ShowSearch="@ShowSearch" SearchPlaceHolderString="@LeftPannelSearchPlaceHolderString"
+                   OnSelectedItemsChanged="@SelectedItemsChanged">
+    </TransferPanel>
+    <div class="transfer-buttons">
+        <Button Color="@Color.Primary" IsDisabled="@GetButtonState(RightItems)" OnClick="() => TransferItems(RightItems, LeftItems)">
+            <i class="fa fa-angle-left"></i>
+            <span class="@LeftButtonClassName">@LeftButtonText</span>
+        </Button>
+        <Button Color="@Color.Primary" IsDisabled="@GetButtonState(LeftItems)" OnClick="() => TransferItems(LeftItems, RightItems)">
+            <span class="@RightButtonClassName">@RightButtonText</span>
+            <i class="fa fa-angle-right"></i>
+        </Button>
+    </div>
+    <TransferPanel Items="@RightItems" Text="@RightPanelText" IsDisabled="@IsDisabled" class="@ValidateClass" Id="@Id"
+                   ShowSearch="@ShowSearch" SearchPlaceHolderString="@RightPannelSearchPlaceHolderString"
+                   OnSelectedItemsChanged="@SelectedItemsChanged">
+    </TransferPanel>
+</div>

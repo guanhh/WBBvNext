@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Libraries\BootstrapBlazor.Chart\BootstrapBlazor.Chart.csproj" />
+    <ProjectReference Include="..\Libraries\BootstrapBlazor.Markdown\BootstrapBlazor.Markdown.csproj" />
+    <ProjectReference Include="..\WBBvNext.Base\WBBvNext.Base.csproj" />
+    <ProjectReference Include="..\WBBvNext.ViewModel\WBBvNext.ViewModel.csproj" />
+  </ItemGroup>
+</Project>
+

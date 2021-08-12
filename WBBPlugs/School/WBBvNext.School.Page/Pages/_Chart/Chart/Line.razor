@@ -1,0 +1,9 @@
+﻿@page "/_School/Line"
+@inherits BasePage
+@attribute [ActionDescription("MenuKey.Line")]
+
+<h3>Line</h3>
+
+<div class="container">
+    <Chart @ref="LineChart" OnInitAsync="() => OnInit(0.4f, false)" OnAfterInitAsync="@OnAfterInit" OnAfterUpdateAsync="@OnAfterUpdate" />
+</div>

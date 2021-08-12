@@ -1,0 +1,20 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WBBvNext.Base;
+
+namespace WBBvNext.$PlugName$.Extension
+{
+    public class $PlugName$Module : WBBModuleBase, IWBBModule
+    {
+        public override string Name => "$PlugName$";
+
+        public override string DisplayName => "$PlugName$";
+
+        public override ModuleTypeEnum ModuleType => ModuleTypeEnum.Default;
+
+        public override string Desc => "$PlugName$描述";
+    }
+}

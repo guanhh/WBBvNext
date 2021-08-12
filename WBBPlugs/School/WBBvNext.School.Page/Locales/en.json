@@ -1,0 +1,21 @@
+﻿{
+  "WBBvNext.Shared.Program": {
+    "_School": "School",
+    "MenuKey.Major": "Major",
+    "MenuKey.School": "School",
+    "MenuKey.Student": "Student",
+    "MenuKey.StudentMajor": "StudentMajor",
+    "MenuKey.Test": "Service Test",
+    "MenuKey.Line": "Line",
+    "School.SchoolCode": "SchoolCode",
+    "School.SchoolName": "SchoolName",
+    "School.SchoolType": "SchoolType",
+    "School.Remark": "Remark",
+    "School.PUB": "PUB",
+    "School.PRI": "PRI",
+    "School.PDFFile": "PDFFile",
+    "School.{0}required": "The {0} field is required",
+    "School.{0}3number": "{0} must be three-digit",
+    "School.{0}stringmax{1}": "The {0} field is limited {1} characters"
+  }
+}

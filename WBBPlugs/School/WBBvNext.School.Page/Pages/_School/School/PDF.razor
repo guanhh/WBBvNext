@@ -1,0 +1,20 @@
+﻿@page "/_School/School/PDF"
+@inherits BasePage
+
+<div>
+    <iframe src="/pdf/web/viewer.html?file=@encodeUrl" class="container" style="height:550px"></iframe>
+</div>
+
+@code {
+
+    [Parameter]
+    public Guid Id { get; set; }
+
+    private string encodeUrl;
+
+    protected override void OnInitialized()
+    {
+        encodeUrl = System.Web.HttpUtility.UrlEncode($"/api/_file/DownloadFile/{Id}?csName=School", System.Text.Encoding.UTF8);
+    }
+
+}

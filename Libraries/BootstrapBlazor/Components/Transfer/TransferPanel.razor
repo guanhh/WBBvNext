@@ -1,0 +1,31 @@
+﻿@namespace BootstrapBlazor.Components
+@inherits BootstrapComponentBase
+
+<div @attributes="@AdditionalAttributes" class="@PanelClassString">
+    <p class="transfer-panel-header">
+        <Checkbox TValue="SelectedItem" DisplayText="@Text" IsDisabled="@IsDisabled" ShowAfterLabel="true" ShowLabel="false"
+                  State="@HeaderCheckState()" OnStateChanged="@OnHeaderCheck" />
+    </p>
+    <div class="transfer-panel-body">
+        @if (ShowSearch)
+        {
+            <div class="transfer-panel-filter">
+                <input type="text" autocomplete="off" placeholder="@SearchPlaceHolderString" disabled="@DisabledString" class="input-inner" value="@SearchText" @oninput="@OnSearch" @onkeyup="@OnKeyUp">
+                <span class="@SearchClass" @onclick="@ClearSearch">
+                    <i class="fa fa-search"></i>
+                </span>
+            </div>
+        }
+        <div role="group" aria-label="checkbox-group" class="@PanelListClassString">
+            @{
+                foreach (var item in GetShownItems())
+                {
+                    var state = item.Active ? CheckboxState.Checked : CheckboxState.UnChecked;
+                    <Checkbox TValue="SelectedItem" IsDisabled="@IsDisabled" class="transfer-panel-item"
+                              DisplayText="@item.Text" Value="item" ShowAfterLabel="true" ShowLabel="false"
+                              State="@state" OnStateChanged="@OnStateChanged"></Checkbox>
+                }
+            }
+        </div>
+    </div>
+</div>

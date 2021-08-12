@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Locales\en.json" />
+    <Content Remove="Locales\zh.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Locales\en.json" />
+    <EmbeddedResource Include="Locales\zh.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Libraries\WalkingTec.Mvvm.Mvc\WalkingTec.Mvvm.Mvc.csproj" />
+    <ProjectReference Include="..\..\..\WBBvNext.Shared\WBBvNext.Shared.csproj" />
+    <ProjectReference Include="..\WBBvNext.School.Abstract\WBBvNext.School.Abstract.csproj" />
+    <ProjectReference Include="..\WBBvNext.School.ViewModel\WBBvNext.School.ViewModel.csproj" />
+  </ItemGroup>
+  
+
+
+</Project>
