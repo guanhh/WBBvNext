@@ -21,12 +21,13 @@
 
 ### WBBvNext
 
-`WBBvNext` 名称取自 `WTM` 和 `BootstrapBlazor` 的首字母，`VNext` 表示基于 `WTM` 改造后的项目
+`WBBvNext` 名称取自 `WTM` 和 `BootstrapBlazor` 的首字母
 
 主要特点：
 
-1. 插件式开发，完全解耦；
-2. 低代码；
+1. 插件架构，完全解耦
+2. 结构清晰，使用简单
+3. 自动生成，编码减少
 
 插件应用
 1.  将样例插件 `School` 编译
