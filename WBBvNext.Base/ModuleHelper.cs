@@ -19,8 +19,15 @@ namespace WBBvNext.Base
                 var plugDir = $"{AppDomain.CurrentDomain.BaseDirectory}{WBBSetting.PLUG_DIR}";
 
                 var files = Directory.GetFiles(plugDir, WBBSetting.PLUG_PATTERN, SearchOption.AllDirectories);
+                List<string> assNames = new List<string>();
+
                 foreach (var file in files)
                 {
+                    var assName = file[(file.LastIndexOf("\\") + 1)..];
+                    if (assNames.Contains(assName))
+                        continue;
+
+                    assNames.Add(assName);
                     var ass = Assembly.LoadFrom(file);
 
                     if (!PlugAssemblies.Contains(ass))
