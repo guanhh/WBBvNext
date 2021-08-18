@@ -32,38 +32,38 @@
 插件应用
 1.  将样例插件 `School` 编译
 
-![插件源码](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/school_code.PNG)
+![插件源码](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/school_code.PNG)
 
 2.  将生成的 `dll` 放置 `WBBPlugs` 目录
 
-![插件放置位置](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/plug.PNG)
+![插件放置位置](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/plug.PNG)
 
 3.  运行 `WBBvNext`
 
-![加载插件运行](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/school.PNG)
+![加载插件运行](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/school.PNG)
 
 ### 演示截图
 
-![login](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_login.png)
+![login](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_login.png)
 
-![home](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_home.png)
+![home](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_home.png)
 
-![user](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_user.png)
+![user](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_user.png)
 
-![role](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_role.png)
+![role](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_role.png)
 
-![wbb](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_wbb.png)
+![wbb](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_wbb.png)
 
-![line](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_line.png)
+![line](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_line.png)
 
-![feedback](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_feedback.png)
+![feedback](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/wbb_show_feedback.png)
 
 
 ### 项目结构
 
 项目结构说明
 
-![项目结构](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/wbb_project.PNG)
+![项目结构](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/wbb_project.PNG)
 
 ### 开发环境
 
@@ -75,13 +75,13 @@
 
 1.  编译 `WBB` 插件，置于 `WBBPlugs` 目录下
 
-![插件目录](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/wbb_dll.PNG)
+![插件目录](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/wbb_dll.PNG)
 
 2.  设置 `WBBvNext` 为启用项，运行项目
 
 3.  配置插件参数，生成插件结构
 
-![插件界面](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/plug_codegen.PNG)
+![插件界面](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/plug_codegen.PNG)
 
 4. 生成插件代码后，将工程添加到 `WBBvNext` 中
 
@@ -95,7 +95,7 @@
 
 PDF预览
 
-![PDF预览](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBPlugs/Doc/WBBvNext.Doc.Page/Doc/images/pdf_priview.PNG)
+![PDF预览](https://gitee.com/guan2h/WBB-vNext/raw/master/WBBModules/Doc/WBBvNext.Doc.Page/Doc/images/pdf_priview.PNG)
 
 ### 待办
 - [x] `WBB` 模板模块
