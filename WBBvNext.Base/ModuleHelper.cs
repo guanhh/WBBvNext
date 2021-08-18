@@ -18,6 +18,11 @@ namespace WBBvNext.Base
                 PlugAssemblies = new List<Assembly>();
                 var plugDir = $"{AppDomain.CurrentDomain.BaseDirectory}{WBBSetting.PLUG_DIR}";
 
+                if (!Directory.Exists(plugDir))
+                {
+                    Directory.CreateDirectory(plugDir);
+                }
+
                 var files = Directory.GetFiles(plugDir, WBBSetting.PLUG_PATTERN, SearchOption.AllDirectories);
                 List<string> assNames = new List<string>();
 
